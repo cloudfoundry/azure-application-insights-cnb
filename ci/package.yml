@@ -1,0 +1,20 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: latest
+
+inputs:
+- name: azure-application-insights-buildpack
+
+outputs:
+- name: artifactory
+
+caches:
+- path: go-module-cache
+
+run:
+  path: azure-application-insights-buildpack/ci/package.sh
