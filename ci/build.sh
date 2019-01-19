@@ -9,3 +9,4 @@ fi
 
 go build -ldflags='-s -w' -o bin/build build/main.go
 go build -ldflags='-s -w' -o bin/detect detect/main.go
+go build -ldflags='-s -w' -o bin/azure-application-insights-properties java/helper/main.go

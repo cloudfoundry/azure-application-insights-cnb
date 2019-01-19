@@ -41,5 +41,6 @@ stacks  = [ "io.buildpacks.stacks.bionic" ]
     "AI-Agent.xml",
     "bin/build",
     "bin/detect",
+    "bin/azure-application-insights-properties",
     "buildpack.toml",
   ]
