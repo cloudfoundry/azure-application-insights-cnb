@@ -53,7 +53,7 @@ export JAVA_OPTS="${JAVA_OPTS} $(azure-application-insights-properties)"
 
 // String makes Properties satisfy the Stringer interface.
 func (p Properties) String() string {
-	return fmt.Sprintf("Properties{ buildpack: %s layer: %s }", p.buildpack, p.layer)
+	return fmt.Sprintf("Properties{ buildpack: %s, layer: %s }", p.buildpack, p.layer)
 }
 
 // NewProperties creates a new Properties instance.
