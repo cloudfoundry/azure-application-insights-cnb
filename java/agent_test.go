@@ -39,8 +39,8 @@ func TestAgent(t *testing.T) {
 		})
 
 		it("returns true if build plan does exist", func() {
-			f.AddBuildPlan(java.AgentDependency, buildplan.Dependency{})
-			f.AddDependency(java.AgentDependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
+			f.AddBuildPlan(java.Dependency, buildplan.Dependency{})
+			f.AddDependency(java.Dependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
 
 			_, ok, err := java.NewAgent(f.Build)
 			g.Expect(err).NotTo(HaveOccurred())
@@ -54,8 +54,8 @@ func TestAgent(t *testing.T) {
 		})
 
 		it("contributes agent", func() {
-			f.AddBuildPlan(java.AgentDependency, buildplan.Dependency{})
-			f.AddDependency(java.AgentDependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
+			f.AddBuildPlan(java.Dependency, buildplan.Dependency{})
+			f.AddDependency(java.Dependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
 			test.TouchFile(t, filepath.Join(f.Build.Buildpack.Root, "AI-Agent.xml"))
 
 			a, ok, err := java.NewAgent(f.Build)

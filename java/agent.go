@@ -26,8 +26,8 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/layers"
 )
 
-// AgentDependency indicates that a JVM application should be run with Azure Application Insights enabled.
-const AgentDependency = "azure-application-insights-java"
+// Dependency indicates that a JVM application should be run with Azure Application Insights enabled.
+const Dependency = "azure-application-insights-java"
 
 // Agent represents an agent contribution by the buildpack.
 type Agent struct {
@@ -61,7 +61,7 @@ func (a Agent) String() string {
 
 // NewAgent creates a new Agent instance.
 func NewAgent(build build.Build) (Agent, bool, error) {
-	bp, ok := build.BuildPlan[AgentDependency]
+	bp, ok := build.BuildPlan[Dependency]
 	if !ok {
 		return Agent{}, false, nil
 	}
@@ -71,7 +71,7 @@ func NewAgent(build build.Build) (Agent, bool, error) {
 		return Agent{}, false, err
 	}
 
-	dep, err := deps.Best(AgentDependency, bp.Version, build.Stack)
+	dep, err := deps.Best(Dependency, bp.Version, build.Stack)
 	if err != nil {
 		return Agent{}, false, err
 	}

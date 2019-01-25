@@ -52,7 +52,7 @@ func d(detect detect.Detect) (int, error) {
 	}
 
 	if _, ok := detect.BuildPlan[jvmapplication.Dependency]; ok {
-		return detect.Pass(buildplan.BuildPlan{java.AgentDependency: detect.BuildPlan[java.AgentDependency]})
+		return detect.Pass(buildplan.BuildPlan{java.Dependency: detect.BuildPlan[java.Dependency]})
 	}
 
 	return detect.Fail(), nil

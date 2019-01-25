@@ -59,7 +59,7 @@ func TestDetect(t *testing.T) {
 
 			g.Expect(d(f.Detect)).To(Equal(detect.PassStatusCode))
 			g.Expect(f.Output).To(Equal(buildplan.BuildPlan{
-				java.AgentDependency: buildplan.Dependency{},
+				java.Dependency: buildplan.Dependency{},
 			}))
 		})
 	}, spec.Report(report.Terminal{}))
