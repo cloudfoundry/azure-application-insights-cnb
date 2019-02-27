@@ -18,7 +18,6 @@ package java
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 
 	"github.com/cloudfoundry/libcfbuildpack/build"
@@ -30,17 +29,13 @@ import (
 // Properties represents the azure-application-insights-properties helper application.
 type Properties struct {
 	buildpack buildpack.Buildpack
-	layer     layers.Layer
+	layer     layers.HelperLayer
 }
 
 // Contributes makes the contribution to launch
 func (p Properties) Contribute() error {
-	return p.layer.Contribute(marker{p.buildpack.Info}, func(layer layers.Layer) error {
-		if err := os.RemoveAll(layer.Root); err != nil {
-			return err
-		}
-
-		if err := helper.CopyFile(filepath.Join(p.buildpack.Root, "bin", "azure-application-insights-properties"), filepath.Join(layer.Root, "bin", "azure-application-insights-properties")); err != nil {
+	return p.layer.Contribute(func(artifact string, layer layers.HelperLayer) error {
+		if err := helper.CopyFile(artifact, filepath.Join(layer.Root, "bin", "azure-application-insights-properties")); err != nil {
 			return err
 		}
 
@@ -58,14 +53,5 @@ func (p Properties) String() string {
 
 // NewProperties creates a new Properties instance.
 func NewProperties(build build.Build) Properties {
-	return Properties{build.Buildpack, build.Layers.Layer("azure-application-insights-properties")}
+	return Properties{build.Buildpack, build.Layers.HelperLayer("azure-application-insights-properties", "Azure Application Insights Properties")}
 }
-
-type marker struct {
-	buildpack.Info
-}
-
-func (m marker) Identity() (string, string) {
-	return "Azure Application Insights Properties", m.Version
-}
-
