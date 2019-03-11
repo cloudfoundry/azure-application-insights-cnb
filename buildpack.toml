@@ -33,14 +33,14 @@ stacks  = [ "io.buildpacks.stacks.bionic" ]
   uri  = "https://github.com/Microsoft/ApplicationInsights-Java/blob/master/LICENSE.txt"
 
 [metadata]
-  pre_package = "ci/build.sh"
-  include_files = [
-    "LICENSE",
-    "NOTICE",
-    "README.md",
-    "AI-Agent.xml",
-    "bin/build",
-    "bin/detect",
-    "bin/azure-application-insights-properties",
-    "buildpack.toml",
-  ]
+pre_package = "ci/build.sh"
+include_files = [
+  "LICENSE",
+  "NOTICE",
+  "README.md",
+  "AI-Agent.xml",
+  "bin/build",
+  "bin/detect",
+  "bin/azure-application-insights-properties",
+  "buildpack.toml",
+]
