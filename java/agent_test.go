@@ -21,7 +21,7 @@ import (
 	"testing"
 
 	"github.com/buildpack/libbuildpack/buildplan"
-	"github.com/cloudfoundry/azure-application-insights-buildpack/java"
+	"github.com/cloudfoundry/azure-application-insights-cnb/java"
 	"github.com/cloudfoundry/libcfbuildpack/test"
 	. "github.com/onsi/gomega"
 	"github.com/sclevine/spec"

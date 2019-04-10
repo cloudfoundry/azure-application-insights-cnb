@@ -8,10 +8,10 @@ image_resource:
     tag: latest
 
 inputs:
-- name: azure-application-insights-buildpack
+- name: azure-application-insights-cnb
 
 caches:
 - path: go-module-cache
 
 run:
-  path: azure-application-insights-buildpack/ci/unit-test.sh
+  path: azure-application-insights-cnb/ci/unit-test.sh

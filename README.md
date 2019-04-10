@@ -1,4 +1,4 @@
-# `azure-application-insights-buildpack`
+# `azure-application-insights-cnb`
 The Cloud Foundry Azure Application Insights Buildpack is a Cloud Native Buildpack V3 that provides the [Application Insights][a] agent and configuration to applications.
 
 This buildpack is designed to work in collaboration with bound service instances.

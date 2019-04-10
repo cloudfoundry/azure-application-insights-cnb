@@ -8,7 +8,7 @@ image_resource:
     tag: latest
 
 inputs:
-- name: azure-application-insights-buildpack
+- name: azure-application-insights-cnb
 
 outputs:
 - name: artifactory
@@ -17,4 +17,4 @@ caches:
 - path: go-module-cache
 
 run:
-  path: azure-application-insights-buildpack/ci/package.sh
+  path: azure-application-insights-cnb/ci/package.sh
