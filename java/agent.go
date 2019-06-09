@@ -17,7 +17,6 @@
 package java
 
 import (
-	"fmt"
 	"path/filepath"
 
 	"github.com/cloudfoundry/libcfbuildpack/build"
@@ -52,11 +51,6 @@ func (a Agent) Contribute() error {
 
 		return layer.AppendLaunchEnv("JAVA_OPTS", " -javaagent:%s", destination)
 	}, layers.Launch)
-}
-
-// String makes Agent satisfy the Stringer interface.
-func (a Agent) String() string {
-	return fmt.Sprintf("Agent{ buildpack: %s, layer: %s }", a.buildpack, a.layer)
 }
 
 // NewAgent creates a new Agent instance.

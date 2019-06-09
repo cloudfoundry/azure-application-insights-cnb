@@ -17,7 +17,6 @@
 package java
 
 import (
-	"fmt"
 	"path/filepath"
 
 	"github.com/cloudfoundry/libcfbuildpack/build"
@@ -44,11 +43,6 @@ func (p Properties) Contribute() error {
 export JAVA_OPTS="${JAVA_OPTS} $(azure-application-insights-properties)"
 `)
 	}, layers.Launch)
-}
-
-// String makes Properties satisfy the Stringer interface.
-func (p Properties) String() string {
-	return fmt.Sprintf("Properties{ buildpack: %s, layer: %s }", p.buildpack, p.layer)
 }
 
 // NewProperties creates a new Properties instance.
