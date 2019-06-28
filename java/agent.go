@@ -37,7 +37,7 @@ type Agent struct {
 // Contribute makes the contribution to launch.
 func (a Agent) Contribute() error {
 	return a.layer.Contribute(func(artifact string, layer layers.DependencyLayer) error {
-		layer.Logger.SubsequentLine("Copying to %s", layer.Root)
+		layer.Logger.Body("Copying to %s", layer.Root)
 
 		destination := filepath.Join(layer.Root, layer.ArtifactName())
 

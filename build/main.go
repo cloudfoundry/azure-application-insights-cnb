@@ -41,7 +41,7 @@ func main() {
 }
 
 func b(build build.Build) (int, error) {
-	build.Logger.FirstLine(build.Logger.PrettyIdentity(build.Buildpack))
+	build.Logger.Title(build.Buildpack)
 
 	if a, ok, err := java.NewAgent(build); err != nil {
 		return build.Failure(102), err
