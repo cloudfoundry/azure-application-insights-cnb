@@ -23,14 +23,14 @@ import (
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/azure-application-insights-cnb/java"
 	"github.com/cloudfoundry/libcfbuildpack/test"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 )
 
 func TestAgent(t *testing.T) {
 	spec.Run(t, "Agent", func(t *testing.T, _ spec.G, it spec.S) {
 
-		g := NewGomegaWithT(t)
+		g := gomega.NewWithT(t)
 
 		var f *test.BuildFactory
 
@@ -43,14 +43,14 @@ func TestAgent(t *testing.T) {
 			f.AddDependency(java.Dependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
 
 			_, ok, err := java.NewAgent(f.Build)
-			g.Expect(err).NotTo(HaveOccurred())
-			g.Expect(ok).To(BeTrue())
+			g.Expect(err).NotTo(gomega.HaveOccurred())
+			g.Expect(ok).To(gomega.BeTrue())
 		})
 
 		it("returns false if build plan does not exist", func() {
 			_, ok, err := java.NewAgent(f.Build)
-			g.Expect(err).NotTo(HaveOccurred())
-			g.Expect(ok).To(BeFalse())
+			g.Expect(err).NotTo(gomega.HaveOccurred())
+			g.Expect(ok).To(gomega.BeFalse())
 		})
 
 		it("contributes agent", func() {
@@ -59,15 +59,15 @@ func TestAgent(t *testing.T) {
 			test.TouchFile(t, filepath.Join(f.Build.Buildpack.Root, "AI-Agent.xml"))
 
 			a, ok, err := java.NewAgent(f.Build)
-			g.Expect(err).NotTo(HaveOccurred())
-			g.Expect(ok).To(BeTrue())
+			g.Expect(err).NotTo(gomega.HaveOccurred())
+			g.Expect(ok).To(gomega.BeTrue())
 
-			g.Expect(a.Contribute()).To(Succeed())
+			g.Expect(a.Contribute()).To(gomega.Succeed())
 
 			layer := f.Build.Layers.Layer("azure-application-insights-java")
 			g.Expect(layer).To(test.HaveLayerMetadata(false, false, true))
-			g.Expect(filepath.Join(layer.Root, "stub-azure-application-insights-agent.jar")).To(BeARegularFile())
-			g.Expect(filepath.Join(layer.Root, "AI-Agent.xml")).To(BeARegularFile())
+			g.Expect(filepath.Join(layer.Root, "stub-azure-application-insights-agent.jar")).To(gomega.BeARegularFile())
+			g.Expect(filepath.Join(layer.Root, "AI-Agent.xml")).To(gomega.BeARegularFile())
 			g.Expect(layer).To(test.HaveAppendLaunchEnvironment("JAVA_OPTS", " -javaagent:%s",
 				filepath.Join(layer.Root, "stub-azure-application-insights-agent.jar")))
 		})

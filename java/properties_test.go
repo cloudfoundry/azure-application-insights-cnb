@@ -22,14 +22,14 @@ import (
 
 	"github.com/cloudfoundry/azure-application-insights-cnb/java"
 	"github.com/cloudfoundry/libcfbuildpack/test"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 )
 
 func TestProperties(t *testing.T) {
 	spec.Run(t, "Properties", func(t *testing.T, _ spec.G, it spec.S) {
 
-		g := NewGomegaWithT(t)
+		g := gomega.NewWithT(t)
 
 		it("contributes new relic properties", func() {
 			f := test.NewBuildFactory(t)
@@ -37,11 +37,11 @@ func TestProperties(t *testing.T) {
 
 			c := java.NewProperties(f.Build)
 
-			g.Expect(c.Contribute()).To(Succeed())
+			g.Expect(c.Contribute()).To(gomega.Succeed())
 
 			layer := f.Build.Layers.Layer("azure-application-insights-properties")
 			g.Expect(layer).To(test.HaveLayerMetadata(false, false, true))
-			g.Expect(filepath.Join(layer.Root, "bin", "azure-application-insights-properties")).To(BeARegularFile())
+			g.Expect(filepath.Join(layer.Root, "bin", "azure-application-insights-properties")).To(gomega.BeARegularFile())
 			g.Expect(layer).To(test.HaveProfile("azure-application-insights-properties", `printf "Configuring Azure Application Insights Properties"
 
 export JAVA_OPTS="${JAVA_OPTS} $(azure-application-insights-properties)"

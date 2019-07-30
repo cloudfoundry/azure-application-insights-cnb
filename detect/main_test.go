@@ -25,7 +25,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/detect"
 	"github.com/cloudfoundry/libcfbuildpack/services"
 	"github.com/cloudfoundry/libcfbuildpack/test"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 )
@@ -33,7 +33,7 @@ import (
 func TestDetect(t *testing.T) {
 	spec.Run(t, "Detect", func(t *testing.T, _ spec.G, it spec.S) {
 
-		g := NewGomegaWithT(t)
+		g := gomega.NewWithT(t)
 
 		var f *test.DetectFactory
 
@@ -44,21 +44,21 @@ func TestDetect(t *testing.T) {
 		it("fails without service", func() {
 			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
 
-			g.Expect(d(f.Detect)).To(Equal(detect.FailStatusCode))
+			g.Expect(d(f.Detect)).To(gomega.Equal(detect.FailStatusCode))
 		})
 
 		it("fails without jvm-application", func() {
 			f.AddService("azure-application-insights", services.Credentials{})
 
-			g.Expect(d(f.Detect)).To(Equal(detect.FailStatusCode))
+			g.Expect(d(f.Detect)).To(gomega.Equal(detect.FailStatusCode))
 		})
 
 		it("passes with service and jvm-application", func() {
 			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
 			f.AddService("azure-application-insights", services.Credentials{"instrumentation_key": "instrumentation_value"})
 
-			g.Expect(d(f.Detect)).To(Equal(detect.PassStatusCode))
-			g.Expect(f.Output).To(Equal(buildplan.BuildPlan{
+			g.Expect(d(f.Detect)).To(gomega.Equal(detect.PassStatusCode))
+			g.Expect(f.Output).To(gomega.Equal(buildplan.BuildPlan{
 				java.Dependency: buildplan.Dependency{},
 			}))
 		})

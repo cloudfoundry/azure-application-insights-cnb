@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	"github.com/cloudfoundry/libcfbuildpack/test"
-	. "github.com/onsi/gomega"
+	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
 	"github.com/sclevine/spec/report"
 )
@@ -28,7 +28,7 @@ import (
 func TestAzureApplicationInsightsProperties(t *testing.T) {
 	spec.Run(t, "Azure Application Insights Properties", func(t *testing.T, when spec.G, it spec.S) {
 
-		g := NewGomegaWithT(t)
+		g := gomega.NewWithT(t)
 
 		when("service is bound", func() {
 
@@ -47,9 +47,9 @@ func TestAzureApplicationInsightsProperties(t *testing.T) {
 
 				p, code, err := p()
 
-				g.Expect(err).NotTo(HaveOccurred())
-				g.Expect(code).To(Equal(0))
-				g.Expect(p).To(ContainElement("-DAPPLICATION_INSIGHTS_IKEY=test-instrumentation-key"))
+				g.Expect(err).NotTo(gomega.HaveOccurred())
+				g.Expect(code).To(gomega.Equal(0))
+				g.Expect(p).To(gomega.ContainElement("-DAPPLICATION_INSIGHTS_IKEY=test-instrumentation-key"))
 			})
 		})
 
@@ -58,11 +58,10 @@ func TestAzureApplicationInsightsProperties(t *testing.T) {
 			it("returns empty", func() {
 				p, code, err := p()
 
-				g.Expect(err).NotTo(HaveOccurred())
-				g.Expect(code).To(Equal(0))
-				g.Expect(p).To(BeEmpty())
+				g.Expect(err).NotTo(gomega.HaveOccurred())
+				g.Expect(code).To(gomega.Equal(0))
+				g.Expect(p).To(gomega.BeEmpty())
 			})
 		})
 	}, spec.Report(report.Terminal{}))
 }
-
