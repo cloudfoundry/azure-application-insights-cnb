@@ -25,6 +25,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/test"
 	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
+	"github.com/sclevine/spec/report"
 )
 
 func TestAgent(t *testing.T) {
@@ -72,5 +73,5 @@ func TestAgent(t *testing.T) {
 				filepath.Join(layer.Root, "stub-azure-application-insights-agent.jar")))
 		})
 
-	})
+	}, spec.Report(report.Terminal{}))
 }

@@ -24,6 +24,7 @@ import (
 	"github.com/cloudfoundry/libcfbuildpack/test"
 	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
+	"github.com/sclevine/spec/report"
 )
 
 func TestProperties(t *testing.T) {
@@ -48,6 +49,5 @@ export JAVA_OPTS="${JAVA_OPTS} $(azure-application-insights-properties)"
 `))
 		})
 
-	})
+	}, spec.Report(report.Terminal{}))
 }
-
