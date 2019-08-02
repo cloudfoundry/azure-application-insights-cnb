@@ -33,11 +33,6 @@ func main() {
 		os.Exit(101)
 	}
 
-	if err := detect.BuildPlan.Init(); err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "Failed to initialize Build Plan: %s\n", err)
-		os.Exit(101)
-	}
-
 	if code, err := d(detect); err != nil {
 		detect.Logger.Info(err.Error())
 		os.Exit(code)
@@ -51,9 +46,13 @@ func d(detect detect.Detect) (int, error) {
 		return detect.Fail(), nil
 	}
 
-	if _, ok := detect.BuildPlan[jvmapplication.Dependency]; ok {
-		return detect.Pass(buildplan.BuildPlan{java.Dependency: detect.BuildPlan[java.Dependency]})
-	}
-
-	return detect.Fail(), nil
+	return detect.Pass(buildplan.Plan{
+		Provides: []buildplan.Provided{
+			{Name: java.Dependency},
+		},
+		Requires: []buildplan.Required{
+			{Name: java.Dependency},
+			{Name: jvmapplication.Dependency},
+		},
+	})
 }

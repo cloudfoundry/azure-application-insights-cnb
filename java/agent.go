@@ -55,8 +55,10 @@ func (a Agent) Contribute() error {
 
 // NewAgent creates a new Agent instance.
 func NewAgent(build build.Build) (Agent, bool, error) {
-	bp, ok := build.BuildPlan[Dependency]
-	if !ok {
+	p, ok, err := build.Plans.GetShallowMerged(Dependency)
+	if err != nil {
+		return Agent{}, false, err
+	} else if !ok {
 		return Agent{}, false, nil
 	}
 
@@ -65,7 +67,7 @@ func NewAgent(build build.Build) (Agent, bool, error) {
 		return Agent{}, false, err
 	}
 
-	dep, err := deps.Best(Dependency, bp.Version, build.Stack)
+	dep, err := deps.Best(Dependency, p.Version, build.Stack)
 	if err != nil {
 		return Agent{}, false, err
 	}

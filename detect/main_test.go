@@ -42,26 +42,24 @@ func TestDetect(t *testing.T) {
 		})
 
 		it("fails without service", func() {
-			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
-
-			g.Expect(d(f.Detect)).To(gomega.Equal(detect.FailStatusCode))
-		})
-
-		it("fails without jvm-application", func() {
-			f.AddService("azure-application-insights", services.Credentials{})
-
 			g.Expect(d(f.Detect)).To(gomega.Equal(detect.FailStatusCode))
 		})
 
 		it("passes with service and jvm-application", func() {
-			f.AddBuildPlan(jvmapplication.Dependency, buildplan.Dependency{})
 			f.AddService("azure-application-insights", services.Credentials{"instrumentation_key": "instrumentation_value"})
 
 			g.Expect(d(f.Detect)).To(gomega.Equal(detect.PassStatusCode))
-			g.Expect(f.Output).To(gomega.Equal(buildplan.BuildPlan{
-				java.Dependency: buildplan.Dependency{},
+			g.Expect(f.Plans).To(gomega.Equal(buildplan.Plans{
+				Plan: buildplan.Plan{
+					Provides: []buildplan.Provided{
+						{Name: java.Dependency},
+					},
+					Requires: []buildplan.Required{
+						{Name: java.Dependency},
+						{Name: jvmapplication.Dependency},
+					},
+				},
 			}))
 		})
 	}, spec.Report(report.Terminal{}))
 }
-
