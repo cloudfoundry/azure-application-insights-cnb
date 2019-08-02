@@ -20,8 +20,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/azure-application-insights-cnb/java"
+	"github.com/cloudfoundry/libcfbuildpack/buildpackplan"
 	"github.com/cloudfoundry/libcfbuildpack/test"
 	"github.com/onsi/gomega"
 	"github.com/sclevine/spec"
@@ -40,7 +40,7 @@ func TestAgent(t *testing.T) {
 		})
 
 		it("returns true if build plan does exist", func() {
-			f.AddBuildPlan(java.Dependency, buildplan.Dependency{})
+			f.AddPlan(buildpackplan.Plan{Name: java.Dependency})
 			f.AddDependency(java.Dependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
 
 			_, ok, err := java.NewAgent(f.Build)
@@ -55,7 +55,7 @@ func TestAgent(t *testing.T) {
 		})
 
 		it("contributes agent", func() {
-			f.AddBuildPlan(java.Dependency, buildplan.Dependency{})
+			f.AddPlan(buildpackplan.Plan{Name: java.Dependency})
 			f.AddDependency(java.Dependency, filepath.Join("testdata", "stub-azure-application-insights-agent.jar"))
 			test.TouchFile(t, filepath.Join(f.Build.Buildpack.Root, "AI-Agent.xml"))
 
