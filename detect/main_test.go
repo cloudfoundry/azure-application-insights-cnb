@@ -49,15 +49,13 @@ func TestDetect(t *testing.T) {
 			f.AddService("azure-application-insights", services.Credentials{"instrumentation_key": "instrumentation_value"})
 
 			g.Expect(d(f.Detect)).To(gomega.Equal(detect.PassStatusCode))
-			g.Expect(f.Plans).To(gomega.Equal(buildplan.Plans{
-				Plan: buildplan.Plan{
-					Provides: []buildplan.Provided{
-						{Name: java.Dependency},
-					},
-					Requires: []buildplan.Required{
-						{Name: java.Dependency},
-						{Name: jvmapplication.Dependency},
-					},
+			g.Expect(f.Plans).To(test.HavePlans(buildplan.Plan{
+				Provides: []buildplan.Provided{
+					{Name: java.Dependency},
+				},
+				Requires: []buildplan.Required{
+					{Name: java.Dependency},
+					{Name: jvmapplication.Dependency},
 				},
 			}))
 		})
