@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+api = "2.0"
+
 [buildpack]
-id = "org.cloudfoundry.azureapplicationinsights"
-name = "Cloud Foundry Azure Application Insights Buildpack"
+id      = "org.cloudfoundry.azureapplicationinsights"
+name    = "Cloud Foundry Azure Application Insights Buildpack"
 version = "1.0.0-BUILD-SNAPSHOT"
 
 [[stacks]]
@@ -36,7 +38,7 @@ stacks  = [ "io.buildpacks.stacks.bionic", "org.cloudfoundry.stacks.cflinuxfs3" 
   uri  = "https://github.com/Microsoft/ApplicationInsights-Java/blob/master/LICENSE.txt"
 
 [metadata]
-pre_package = "ci/build.sh"
+pre_package   = "ci/build.sh"
 include_files = [
   "LICENSE",
   "NOTICE",
