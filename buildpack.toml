@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-api = "2.0"
+api = "0.2"
 
 [buildpack]
 id      = "org.cloudfoundry.azureapplicationinsights"
