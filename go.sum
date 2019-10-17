@@ -21,9 +21,8 @@ github.com/buildpack/libbuildpack v1.25.0/go.mod h1:cBmq8aozSDfy+RiKCERQbT6lk0M/
 github.com/buildpack/libbuildpack v1.25.2 h1:usiNCOhmM3WbxklbrGgb1NhDKRaYyECOOynsF0f0UeY=
 github.com/buildpack/libbuildpack v1.25.2/go.mod h1:cBmq8aozSDfy+RiKCERQbT6lk0M/Xf3aJWK2PLbPG1g=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
-github.com/cloudfoundry/jvm-application-cnb v1.0.45 h1:ZKQHv2TAdImZm5aSsXMFUzbGpw2TZnPSHLlRpEP91TY=
-github.com/cloudfoundry/jvm-application-cnb v1.0.45/go.mod h1:tCFohtmQc1M7BssXMJvnGXBq1mXoH1bqWuNBgJjerKU=
-github.com/cloudfoundry/libcfbuildpack v1.89.1 h1:d0qgnFHUb1pCUdjlawFPKZ+r78Hq1L9C6Lo/AX8LtwU=
+github.com/cloudfoundry/jvm-application-cnb v1.0.46 h1:3DFhn2x57wFrXMfIlEk1vp+ckWVmyFH2PjfSvzF6fGI=
+github.com/cloudfoundry/jvm-application-cnb v1.0.46/go.mod h1:JMw6t867ifErM/SCpqiozQvNwEqRlGM3ClI25aOA8rY=
 github.com/cloudfoundry/libcfbuildpack v1.89.1/go.mod h1:dcWh59YByoKe7AtQXv9/wa5MWLc/0Vy6laVQqH7FM28=
 github.com/cloudfoundry/libcfbuildpack v1.89.2 h1:1ikFH6tEUOIGFIjdYjawINVosxXKbFJbBYEvgVFQYe8=
 github.com/cloudfoundry/libcfbuildpack v1.89.2/go.mod h1:dcWh59YByoKe7AtQXv9/wa5MWLc/0Vy6laVQqH7FM28=
