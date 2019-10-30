@@ -21,14 +21,12 @@ github.com/buildpack/libbuildpack v1.25.3/go.mod h1:cBmq8aozSDfy+RiKCERQbT6lk0M/
 github.com/buildpack/libbuildpack v1.25.4 h1:jlflYJWNy+WFup6/6v4ErOG6y8+4OVAb7ie/ECM5bBs=
 github.com/buildpack/libbuildpack v1.25.4/go.mod h1:GhVefAW5VEN0L2AWrupSzwMUeKd3N0UzT45oUAKcPCM=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
-github.com/cloudfoundry/jvm-application-cnb v1.0.72 h1:+mqqJJYZn/W94ZIZZDW5Gu9k3WszEPzrz8chFNccncU=
-github.com/cloudfoundry/jvm-application-cnb v1.0.72/go.mod h1:+6OURxNVSkSV1Lo7vr3MSIwqVOU/5FhM16k/Ia6+e7o=
-github.com/cloudfoundry/libcfbuildpack v1.91.1/go.mod h1:xi36faMZquu3p8rOg4Y7ukwiipLRP9V40ymI/lgj4m0=
-github.com/cloudfoundry/libcfbuildpack v1.91.2 h1:c6hwFmHLqYWhtC3CYPsfCeo/9d1LcKwtqC+SBFGcYIY=
+github.com/cloudfoundry/jvm-application-cnb v1.0.74 h1:WHLjoV1utYDz47almvWEjCEPNbdJZzU40QKV9c1PUFo=
+github.com/cloudfoundry/jvm-application-cnb v1.0.74/go.mod h1:bkTV/oE/uMkkCNwnkvCKpfDsesiJ7E5kzCBwKa01XMo=
 github.com/cloudfoundry/libcfbuildpack v1.91.2/go.mod h1:MmVyN2ZbxoWcuJ3cK5HVQWwUmwFTRrJbKAao6f2/EZ8=
 github.com/cloudfoundry/libcfbuildpack v1.91.3 h1:SvknKBrrfX1sD6cz2RIm+zxKIbn0OaOdja1aECZITys=
 github.com/cloudfoundry/libcfbuildpack v1.91.3/go.mod h1:oHi1a/+zLoZPtxOR62SZLp0rZ/bYJ2Xp85gsoxBeYEM=
-github.com/cloudfoundry/openjdk-cnb v1.0.51/go.mod h1:3jyN6D8PTusiPKP7QhTAHAtN8s/3yuENA4pUqZgM/bE=
+github.com/cloudfoundry/openjdk-cnb v1.0.53/go.mod h1:/i05d6X10XYTPO4/ANcV94HO+hXrderS5D5duX4+CT0=
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fsnotify/fsnotify v1.4.7 h1:IXs+QLmnXW2CcXuY+8Mzv/fWEsPGWxqefPtCP5CnV9I=
@@ -73,7 +71,6 @@ github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQz
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
-github.com/onsi/ginkgo v1.10.2/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.3 h1:OoxbjfXVZyod1fmWYhI7SEyaD8B00ynP3T+D5GiyHOY=
 github.com/onsi/ginkgo v1.10.3/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.7.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
