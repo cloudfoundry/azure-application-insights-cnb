@@ -22,7 +22,6 @@ import (
 
 	"github.com/buildpack/libbuildpack/buildplan"
 	"github.com/cloudfoundry/azure-application-insights-cnb/java"
-	"github.com/cloudfoundry/jvm-application-cnb/jvmapplication"
 	"github.com/cloudfoundry/libcfbuildpack/detect"
 )
 
@@ -52,7 +51,7 @@ func d(detect detect.Detect) (int, error) {
 		},
 		Requires: []buildplan.Required{
 			{Name: java.Dependency},
-			{Name: jvmapplication.Dependency},
+			{Name: "jvm-application"},
 		},
 	})
 }
